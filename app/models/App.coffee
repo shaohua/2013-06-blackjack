@@ -8,3 +8,8 @@ class window.App extends Backbone.Model
     (@get 'playerHand').on 'stand', =>
       console.log('stand')
       (@get 'dealerHand').hit()
+    (@get 'dealerHand').on 'decide_winner', =>
+      if (@get 'playerHand').scores() > (@get 'dealerHand').scores()
+        console.log 'You win!'
+      else
+        console.log 'You lose!'

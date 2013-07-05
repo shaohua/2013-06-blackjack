@@ -8,7 +8,14 @@ class window.Hand extends Backbone.Collection
         console.log 'busted'
         @trigger 'busted', @
 
-  hit: -> @add(@deck.pop()).last()
+  hit: ->
+    if @isDealer
+      @first().flip()
+      while _(@scores()).min() < 18
+        @add(@deck.pop()).last()
+      @trigger 'decide_winner', @
+    else
+      @add(@deck.pop()).last()
 
   stand: ->
     # send a signal that App should catch
