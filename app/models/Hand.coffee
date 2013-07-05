@@ -3,6 +3,10 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
+    @on 'add', ->
+      if _(@scores()).min() > 21
+        console.log 'busted'
+        @trigger 'busted'
 
   hit: -> @add(@deck.pop()).last()
 
