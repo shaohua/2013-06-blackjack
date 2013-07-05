@@ -6,6 +6,10 @@ class window.Hand extends Backbone.Collection
 
   hit: -> @add(@deck.pop()).last()
 
+  stand: ->
+    # send a signal that App should catch
+    @trigger 'stand', @
+
   scores: ->
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.
