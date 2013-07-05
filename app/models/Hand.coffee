@@ -4,14 +4,13 @@ class window.Hand extends Backbone.Collection
 
   initialize: (array, @deck, @isDealer) ->
     @on 'add', ->
-      if _(@scores()).min() > 21
-        console.log 'busted'
-        @trigger 'busted', @
+      if @getS() > 21
+        @trigger 'decide_winner', @
 
   hit: ->
     if @isDealer
       @first().flip()
-      while _(@scores()).min() < 18
+      while @getS() < 18
         @add(@deck.pop()).last()
       @trigger 'decide_winner', @
     else
@@ -32,3 +31,10 @@ class window.Hand extends Backbone.Collection
       score + if card.get 'revealed' then card.get 'value' else 0
     , 0
     if hasAce then [score, score + 10] else [score]
+
+  #helper
+  getS: ->
+    if _(@scores()).max() <= 21
+      return _(@scores()).max()
+    else
+      return _(@scores()).min()
