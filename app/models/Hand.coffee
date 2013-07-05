@@ -6,7 +6,7 @@ class window.Hand extends Backbone.Collection
     @on 'add', ->
       if _(@scores()).min() > 21
         console.log 'busted'
-        @trigger 'busted'
+        @trigger 'busted', @
 
   hit: -> @add(@deck.pop()).last()
 
