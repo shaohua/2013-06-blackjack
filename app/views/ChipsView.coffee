@@ -13,9 +13,8 @@ class window.ChipsView extends Backbone.View
 
   events:
     'click .submit': ->
-      console.log(@model.get('bet'))
-      @model.set('bet', $('.bet').val())
-      console.log(@model.get('bet'))
+      bet = $('.bet').val()
+      if @model.get('chips') >= bet then @model.set('bet', bet) else alert "You don't have enough money!"
 
   initialize: ->
     @model.on('change', => @render())
