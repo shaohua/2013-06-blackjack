@@ -3,6 +3,7 @@ class window.App extends Backbone.Model
 
   initialize: ->
     @set 'deck', deck = new Deck()
+    @set 'recommend', recommend = new Probability()
     @set 'chips', chips = new Chips()
     @on 'win', =>
       @get('chips').win()
@@ -33,3 +34,8 @@ class window.App extends Backbone.Model
       else
         alert 'You lose!'
         @trigger 'lose', @
+
+    (@get 'playerHand').on 'recommend', =>
+      (@get 'recommend').onRecommend( (@get 'playerHand').getS(),
+                                      (@get 'dealerHand').getS() )
+      # (@get 'recommend')

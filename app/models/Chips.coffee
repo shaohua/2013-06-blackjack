@@ -1,5 +1,3 @@
-#CHIPS
-
 class window.Chips extends Backbone.Model
 
   initialize: ->

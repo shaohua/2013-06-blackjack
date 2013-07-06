@@ -15,6 +15,7 @@ class window.Hand extends Backbone.Collection
       @trigger 'decide_winner', @
     else
       @add(@deck.pop()).last()
+      @trigger 'recommend', @
 
   stand: ->
     # send a signal that App should catch
