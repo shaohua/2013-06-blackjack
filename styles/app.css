@@ -1,5 +1,22 @@
+body {
+  background-image: url("pokercloth.png");
+  margin-left: 20px;
+  margin-top: 10px;
+}
+h2 {
+  color: white;
+}
+img {
+  position: absolute;
+  margin-top: -10px;
+  margin-left: -20px;
+  height: 100%;
+  width: 100%;
+  z-index: -1000;
+}
 .card {
   float: left;
+  background-color: white;
   border: solid 1px black;
   width: 100px;
   border-radius: 5px;

@@ -4,7 +4,7 @@ class window.Hand extends Backbone.Collection
 
   initialize: (array, @deck, @isDealer) ->
     @on 'add', ->
-      if @getS() > 21
+      if @getS() > 21 and not isDealer
         @trigger 'decide_winner', @
 
   hit: ->
