@@ -9,11 +9,11 @@ class window.Chips extends Backbone.Model
       # @chips + bet*2
 
   win: ->
-    @set('chips', @get('chips') + @get('bet'))
+    @set('chips', parseFloat( @get('chips') ) + parseFloat( @get('bet') ))
     console.log('after winning', @get('chips'))
 
   lose: ->
-    @set('chips', @get('chips') - @get('bet'))
+    @set('chips', parseFloat( @get('chips') ) -  parseFloat( @get('bet') ))
     console.log('after losing', @get('chips'))
 
   tie: ->
