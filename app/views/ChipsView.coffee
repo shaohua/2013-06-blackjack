@@ -13,7 +13,9 @@ class window.ChipsView extends Backbone.View
 
   events:
     'click .submit': ->
-      console.log('clicked', $('.bet').val())
+      console.log(@model.get('bet'))
+      @model.set('bet', $('.bet').val())
+      console.log(@model.get('bet'))
 
   initialize: ->
     # @model.on 'change', => @render()
