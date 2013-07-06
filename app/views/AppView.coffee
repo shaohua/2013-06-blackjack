@@ -13,8 +13,9 @@ class window.AppView extends Backbone.View
     "click .hit-button": -> @model.get('playerHand').hit()
     "click .stand-button": -> @model.get('playerHand').stand()
     "click .newgame-button": ->
-      # @model.clear()
-      @model.initialize()
+      chip_number = @model.get('chips')
+      @model = new window.App()
+      @model.set('chips', chip_number)
       @render()
 
   initialize: -> @render()
