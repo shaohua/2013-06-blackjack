@@ -18,10 +18,10 @@ class window.ChipsView extends Backbone.View
       console.log(@model.get('bet'))
 
   initialize: ->
-    # @model.on 'change', => @render()
+    @model.on('change', => @render())
     @render()
 
   render: ->
     @$el.children().detach()
     @$el.html @template @model
-    @$('.chips').text @model.chips
+    @$('.chips').text @model.get('chips')

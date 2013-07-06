@@ -7,9 +7,13 @@ class window.App extends Backbone.Model
     @on 'win', =>
       @get('chips').win()
       console.log('captured win event')
+    @on 'lose', =>
+      @get('chips').lose()
+      console.log('captured lose event')
 
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
+    
     (@get 'playerHand').on 'stand', =>
       console.log('stand')
       (@get 'dealerHand').hit()
@@ -26,7 +30,7 @@ class window.App extends Backbone.Model
         # @model.get('chips').set(chips+bet)
       else if (@get 'playerHand').getS() > (@get 'dealerHand').getS()
         console.log "You win! Your score #{(@get 'playerHand').getS()}! Dealer score #{(@get 'dealerHand').getS()}"
-        @trigger 'lose', @
+        @trigger 'win', @
       else if (@get 'playerHand').getS() == (@get 'dealerHand').getS()
         console.log 'Tie! Horray.'
         @trigger 'tie', @
