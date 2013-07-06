@@ -4,11 +4,16 @@ class window.ChipsView extends Backbone.View
 
   #todo: switch to mustache
   template: _.template '<h2>Chips: <span class="chips"></span></h2>
-    <h2><label>Bet: </label><input type="text" name="bet"></input></h2>'
+    <h2>
+      <form>
+        <label>Bet: </label><input type="text" class="bet" name="bet"></input>
+        <input type="button" class="submit" value="Place Bet"></input>
+      </form>
+    </h2>'
 
   events:
-    onBet: ->
-      #do something
+    'click .submit': ->
+      console.log('clicked', $('.bet').val())
 
   initialize: ->
     # @model.on 'change', => @render()
