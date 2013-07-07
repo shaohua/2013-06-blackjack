@@ -1,7 +1,7 @@
 class window.Probability extends Backbone.Model
 
   initialize: ->
-    @set 'recommend', "HIT"
+    @set 'recommend', "NOT SURE"
     # @on 'recommend', @onRecommend
 
   onRecommend: (playerHand, dealerHand)->

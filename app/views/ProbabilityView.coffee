@@ -3,7 +3,7 @@ class window.ProbabilityView extends Backbone.View
   className: 'recommend'
 
   #todo: switch to mustache
-  template: _.template '<h2>Ace recommends you: <span class="recommend"></span></h2>'
+  template: _.template '<h2>Ace\'s Advice: <span class="recommend"></span></h2>'
 
   initialize: ->
     @model.on('change', => @render())
